@@ -1,0 +1,8 @@
+apiVersion: cart.example.valinux.co.jp/v1alpha1
+kind: Cart
+metadata:
+        name: foo
+spec:
+        cartitems:
+                - name: apple
+                  count: 1

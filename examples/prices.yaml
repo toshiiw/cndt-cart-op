@@ -1,0 +1,10 @@
+apiVersion: cart.example.valinux.co.jp/v1alpha1
+kind: PriceList
+metadata:
+        name: grocery
+spec:
+        prices:
+                - name: pear
+                  price: 200
+                - name: banana
+                  price: 98
