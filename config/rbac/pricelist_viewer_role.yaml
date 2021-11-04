@@ -1,0 +1,20 @@
+# permissions for end users to view pricelists.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pricelist-viewer-role
+rules:
+- apiGroups:
+  - cart.example.valinux.co.jp
+  resources:
+  - pricelists
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - cart.example.valinux.co.jp
+  resources:
+  - pricelists/status
+  verbs:
+  - get

@@ -1,0 +1,7 @@
+apiVersion: cart.example.valinux.co.jp/v1alpha1
+kind: Cart
+metadata:
+  name: cart-sample
+spec:
+  # Add fields here
+  foo: bar

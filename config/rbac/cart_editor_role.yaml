@@ -1,0 +1,24 @@
+# permissions for end users to edit carts.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cart-editor-role
+rules:
+- apiGroups:
+  - cart.example.valinux.co.jp
+  resources:
+  - carts
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cart.example.valinux.co.jp
+  resources:
+  - carts/status
+  verbs:
+  - get
