@@ -32,6 +32,9 @@ type CartItem struct {
 type CartSpec struct {
 	// a list of items
 	CartItems []CartItem `json:"cartitems,omitempty"`
+	//+kubebuilder:default:=false
+	//+kubebuilder:validation:Optional
+	CheckOut bool `json:"checkout"`
 }
 
 // CartStatus defines the observed state of Cart

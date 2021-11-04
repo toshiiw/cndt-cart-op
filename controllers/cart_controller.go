@@ -86,6 +86,19 @@ func (r *CartReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.
 		cart.Status.State = "Ready"
 		cart.Status.Message = ""
 	}
+	if cart.Spec.CheckOut {
+		if cart.Status.State == "Error" {
+			cart.Spec.CheckOut = false
+			if err := r.Update(ctx, &cart); err != nil {
+				log.Error(err, "unable to clear checkout")
+			} else {
+				return ctrl.Result{}, nil
+			}
+		} else if cart.Status.State == "Ready" {
+			cart.Status.State = "CheckedOut"
+		}
+	}
+
 	err := r.Status().Update(ctx, &cart)
 	if err != nil {
 		log.Error(err, "unable to update")

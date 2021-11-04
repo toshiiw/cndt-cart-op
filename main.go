@@ -92,6 +92,10 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "PriceList")
 		os.Exit(1)
 	}
+	if err = (&cartv1alpha1.Cart{}).SetupWebhookWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create webhook", "webhook", "Cart")
+		os.Exit(1)
+	}
 	//+kubebuilder:scaffold:builder
 
 	if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {

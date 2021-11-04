@@ -50,6 +50,9 @@ spec:
                   - name
                   type: object
                 type: array
+              checkout:
+                default: false
+                type: boolean
             type: object
           status:
             description: CartStatus defines the observed state of Cart
