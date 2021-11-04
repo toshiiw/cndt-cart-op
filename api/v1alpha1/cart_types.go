@@ -46,6 +46,8 @@ type CartStatus struct {
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
+//+kubebuilder:printcolumn:JSONPath=".status.state",name=Status,type=string
+//+kubebuilder:printcolumn:JSONPath=".status.total",name=Total,type=integer
 
 // Cart is the Schema for the carts API
 type Cart struct {

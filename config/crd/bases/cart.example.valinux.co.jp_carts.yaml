@@ -16,7 +16,14 @@ spec:
     singular: cart
   scope: Namespaced
   versions:
-  - name: v1alpha1
+  - additionalPrinterColumns:
+    - jsonPath: .status.state
+      name: Status
+      type: string
+    - jsonPath: .status.total
+      name: Total
+      type: integer
+    name: v1alpha1
     schema:
       openAPIV3Schema:
         description: Cart is the Schema for the carts API
